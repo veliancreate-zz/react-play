@@ -1,0 +1,19 @@
+.WorkerCard {
+  z-index: 2;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  img {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+  }
+  &.undercard {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+  }
+}

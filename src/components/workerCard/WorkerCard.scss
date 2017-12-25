@@ -1,0 +1,11 @@
+.worker-container {
+  margin: 0 auto;
+  width: 90%;
+  position: relative;
+}
+
+@media (min-width: 800px) {
+  .worker-container {
+    width: 30%;
+  }
+}
