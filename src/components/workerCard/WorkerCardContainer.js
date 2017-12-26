@@ -7,10 +7,13 @@ function getFirstTwoWorkers(workers) {
   const filteredAndSortedWorkers = workers
     .filter(worker => !worker.swiped)
     .sort((a, b) => a.id - b.id);
-  return [
-    filteredAndSortedWorkers[0],
-    filteredAndSortedWorkers[1],
-  ];
+  if (filteredAndSortedWorkers.length > 2) {
+    return [
+      filteredAndSortedWorkers[0],
+      filteredAndSortedWorkers[1],
+    ];
+  }
+  return filteredAndSortedWorkers;
 }
 
 const mapStateToProps = state => ({

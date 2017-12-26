@@ -14,7 +14,7 @@ describe(__filename, () => {
   describe('Passing the right props', () => {
     const workers = [
       {
-        id: 3,
+        id: 1,
         name: 'Hilary Clinton',
         rating: 3,
         liked: false,
@@ -28,14 +28,14 @@ describe(__filename, () => {
         swiped: false,
       },
       {
-        id: 4,
+        id: 3,
         name: 'George W. Bush',
         rating: 3,
         liked: false,
         swiped: false,
       },
       {
-        id: 1,
+        id: 4,
         name: 'Margaret Thatcher',
         rating: 3,
         liked: false,
@@ -49,24 +49,24 @@ describe(__filename, () => {
       const store = mockStore(propsTestInitialState);
       const wrapper = shallow(<WorkerCardContainer store={store} />);
       const props = wrapper.find(WorkerCard).props();
-      expect(props.workers).toEqual([workers[3], workers[1]]);
+      expect(props.workers).toEqual([workers[0], workers[1]]);
     });
 
     it('will only pass sorted and filtered workers', () => {
-      propsTestInitialState.workers[3].swiped = true;
+      propsTestInitialState.workers[0].swiped = true;
       propsTestInitialState.workers[1].swiped = true;
       const store = mockStore(propsTestInitialState);
       const wrapper = shallow(<WorkerCardContainer store={store} />);
       const props = wrapper.find(WorkerCard).props();
-      expect(props.workers).toEqual([workers[0], workers[2]]);
+      expect(props.workers).toEqual([workers[2], workers[3]]);
     });
 
-    it('will pass undefined as the second item if unswiped workers is 1', () => {
-      propsTestInitialState.workers[0].swiped = true;
+    it('will pass one item if unswiped workers is 1', () => {
+      propsTestInitialState.workers[2].swiped = true;
       const store = mockStore(propsTestInitialState);
       const wrapper = shallow(<WorkerCardContainer store={store} />);
       const props = wrapper.find(WorkerCard).props();
-      expect(props.workers).toEqual([workers[2], undefined]);
+      expect(props.workers).toEqual([workers[3]]);
     });
 
     it('will pass both as undefined if all are swiped', () => {
@@ -77,7 +77,7 @@ describe(__filename, () => {
       const store = mockStore(propsTestInitialState);
       const wrapper = shallow(<WorkerCardContainer store={store} />);
       const props = wrapper.find(WorkerCard).props();
-      expect(props.workers).toEqual([undefined, undefined]);
+      expect(props.workers).toEqual([]);
     });
   });
 
