@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import initialState from '../../initialState';
+import dummyWorkers from '../../dummyWorkers';
 import WorkerCardContainer from './WorkerCardContainer';
 import WorkerCard from './WorkerCard';
 import { swipeRight, swipeLeft } from '../../actions';
@@ -12,44 +13,13 @@ const mockStore = configureStore(middlewares);
 
 describe(__filename, () => {
   describe('Passing the right props', () => {
-    const workers = [
-      {
-        id: 1,
-        name: 'Hilary Clinton',
-        rating: 3,
-        liked: false,
-        swiped: false,
-      },
-      {
-        id: 2,
-        name: 'Replicant Z89765',
-        rating: 4,
-        liked: false,
-        swiped: false,
-      },
-      {
-        id: 3,
-        name: 'George W. Bush',
-        rating: 3,
-        liked: false,
-        swiped: false,
-      },
-      {
-        id: 4,
-        name: 'Margaret Thatcher',
-        rating: 3,
-        liked: false,
-        swiped: false,
-      },
-    ];
-
-    const propsTestInitialState = { workers };
+    const propsTestInitialState = { workers: dummyWorkers };
 
     it('passes the first two workers', () => {
       const store = mockStore(propsTestInitialState);
       const wrapper = shallow(<WorkerCardContainer store={store} />);
       const props = wrapper.find(WorkerCard).props();
-      expect(props.workers).toEqual([workers[0], workers[1]]);
+      expect(props.workers).toEqual([dummyWorkers[0], dummyWorkers[1]]);
     });
 
     it('will only pass sorted and filtered workers', () => {
@@ -58,7 +28,7 @@ describe(__filename, () => {
       const store = mockStore(propsTestInitialState);
       const wrapper = shallow(<WorkerCardContainer store={store} />);
       const props = wrapper.find(WorkerCard).props();
-      expect(props.workers).toEqual([workers[2], workers[3]]);
+      expect(props.workers).toEqual([dummyWorkers[2], dummyWorkers[3]]);
     });
 
     it('will pass one item if unswiped workers is 1', () => {
@@ -66,7 +36,7 @@ describe(__filename, () => {
       const store = mockStore(propsTestInitialState);
       const wrapper = shallow(<WorkerCardContainer store={store} />);
       const props = wrapper.find(WorkerCard).props();
-      expect(props.workers).toEqual([workers[3]]);
+      expect(props.workers).toEqual([dummyWorkers[3]]);
     });
 
     it('will pass both as undefined if all are swiped', () => {
@@ -91,14 +61,14 @@ describe(__filename, () => {
     });
 
     it('should dispatch swipeLeft action', () => {
-      const expectedAction = swipeLeft(workers[0]);
+      const expectedAction = swipeLeft(workers[0].id);
       const props = wrapper.find(WorkerCard).props();
       props.swipeLeft(workers[0]);
       expect(store.getActions()).toEqual([expectedAction]);
     });
 
     it('should dispatch swipeRight action', () => {
-      const expectedAction = swipeRight(workers[0]);
+      const expectedAction = swipeRight(workers[0].id);
       const props = wrapper.find(WorkerCard).props();
       props.swipeRight(workers[0]);
       expect(store.getActions()).toEqual([expectedAction]);

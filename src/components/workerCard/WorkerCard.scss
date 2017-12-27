@@ -26,9 +26,13 @@
       z-index:3;
     }
     p.swiped {
+      font-size: 2rem;
       text-transform: uppercase;
       color: white;
       padding-top: 50%;
+    }
+    p.swiped:last-child{
+      padding-top: 0;
     }
   }
 }

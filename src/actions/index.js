@@ -1,21 +1,21 @@
 import { SWIPE_WORKER } from './types';
 
-export function swipeRight(worker) {
+export function swipeRight(workerId) {
   return {
     type: SWIPE_WORKER,
     payload: {
-      id: worker.id,
+      id: workerId,
       swiped: true,
       liked: true,
     },
   };
 }
 
-export function swipeLeft(worker) {
+export function swipeLeft(workerId) {
   return {
     type: SWIPE_WORKER,
     payload: {
-      id: worker.id,
+      id: workerId,
       swiped: true,
       liked: false,
     },

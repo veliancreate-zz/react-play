@@ -24,6 +24,7 @@ class WorkerCard extends Component {
   }
 
   componentWillUnmount() {
+    this.manager.off('swipe');
     this.manager.destroy();
   }
 
@@ -44,13 +45,16 @@ class WorkerCard extends Component {
   }
 
   swipeLeft() {
+    if (this.state.didSwipeRight || this.state.didSwipeRight) {
+      return;
+    }
     const worker = this.props.workers[0];
     this.setState({
       didSwipeLeft: true,
       swipedWorker: worker.name,
     });
     setTimeout(() => {
-      this.props.swipeLeft(worker);
+      this.props.swipeLeft(worker.id);
       this.setState({
         didSwipeLeft: false,
       });
@@ -58,13 +62,16 @@ class WorkerCard extends Component {
   }
 
   swipeRight() {
+    if (this.state.didSwipeRight || this.state.didSwipeRight) {
+      return;
+    }
     const worker = this.props.workers[0];
     this.setState({
       didSwipeRight: true,
       swipedWorker: worker.name,
     });
     setTimeout(() => {
-      this.props.swipeRight(worker);
+      this.props.swipeRight(worker.id);
       this.setState({
         didSwipeRight: false,
       });
@@ -83,10 +90,12 @@ class WorkerCard extends Component {
           <WorkerViewer workers={this.props.workers} />
         </div>
         <div className={`WorkerCard undercard ${this.state.didSwipeLeft ? 'disliked' : ''}`}>
-          <p className="swiped">NOPE! {this.state.swipedWorker}</p>
+          <p className="swiped">NOPE!</p>
+          <p className="swiped">{this.state.swipedWorker}</p>
         </div>
         <div className={`WorkerCard undercard ${this.state.didSwipeRight ? 'liked' : ''}`}>
-          <p className="swiped">LIKED! {this.state.swipedWorker}</p>
+          <p className="swiped">LIKED!</p>
+          <p className="swiped">{this.state.swipedWorker}</p>
         </div>
         { swiper }
       </div>

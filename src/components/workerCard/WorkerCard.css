@@ -28,9 +28,12 @@
       background-color: #6e6e6e;
       z-index: 3; }
     .WorkerCard.undercard p.swiped {
+      font-size: 2rem;
       text-transform: uppercase;
       color: white;
       padding-top: 50%; }
+    .WorkerCard.undercard p.swiped:last-child {
+      padding-top: 0; }
 
 @media (min-width: 800px) {
   .worker-container {

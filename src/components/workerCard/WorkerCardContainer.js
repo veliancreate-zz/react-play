@@ -21,8 +21,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  swipeLeft: worker => dispatch(swipeLeft(worker)),
-  swipeRight: worker => dispatch(swipeRight(worker)),
+  swipeLeft: worker => dispatch(swipeLeft(worker.id)),
+  swipeRight: worker => dispatch(swipeRight(worker.id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WorkerCard);
