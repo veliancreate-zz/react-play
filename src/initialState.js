@@ -30,7 +30,7 @@ const initialState = {
     },
     {
       id: 7,
-      name: 'Ban Ki Moon',
+      name: 'Tony Blair',
       rating: 3,
       liked: false,
       swiped: false,

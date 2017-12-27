@@ -1,7 +1,36 @@
+@import '../../mixins';
+@import '../../variables';
+
 .worker-container {
+  text-align: center;
   margin: 0 auto;
   width: 90%;
   position: relative;
+  .workers {
+    background-color: transparent;
+    z-index: 3;
+  }
+}
+
+.WorkerCard {
+  @include WorkerCard;
+  &.undercard {
+    @include UnderCard;
+    transition: 0.5s;
+    &.liked {
+      background-color: $rota_orange;
+      z-index:3;
+    }
+    &.disliked {
+      background-color: $font_lighter_black;
+      z-index:3;
+    }
+    p.swiped {
+      text-transform: uppercase;
+      color: white;
+      padding-top: 50%;
+    }
+  }
 }
 
 @media (min-width: 800px) {

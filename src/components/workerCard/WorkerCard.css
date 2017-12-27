@@ -1,7 +1,36 @@
 .worker-container {
+  text-align: center;
   margin: 0 auto;
   width: 90%;
   position: relative; }
+  .worker-container .workers {
+    background-color: transparent;
+    z-index: 3; }
+
+.WorkerCard {
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  height: 40rem; }
+  .WorkerCard.undercard {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    transition: 0.5s; }
+    .WorkerCard.undercard.liked {
+      background-color: #f0a435;
+      z-index: 3; }
+    .WorkerCard.undercard.disliked {
+      background-color: #6e6e6e;
+      z-index: 3; }
+    .WorkerCard.undercard p.swiped {
+      text-transform: uppercase;
+      color: white;
+      padding-top: 50%; }
 
 @media (min-width: 800px) {
   .worker-container {

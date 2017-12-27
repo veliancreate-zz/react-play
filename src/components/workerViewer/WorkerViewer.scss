@@ -1,19 +1,50 @@
+@import '../../variables';
+@import '../../mixins';
+
 .WorkerCard {
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.19);
   z-index: 2;
-  background-color: #fff;
-  border-radius: 10px;
-  text-align: center;
-  position: relative;
+  @include WorkerCard;
   img {
     display: inline-block;
     width: 100%;
     padding: 10px;
+    -webkit-user-drag: none;
+  }
+  .svg {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin-left: 15px;
   }
   &.undercard {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%,0);
+    box-shadow: none;
+    @include UnderCard;
+  }
+  .no-workers {
+    padding-top: 50%;
   }
 }
+
+.container {
+  .dummyCard {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.19);
+    left: 50%;
+    transform: translate(-50%,0);
+    display: inline-block;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 10px;
+    height: 5rem;
+    &.first {
+      width: 98%;
+      bottom: 155px;
+    }
+    &.second {
+      width: 95%;
+      bottom: 145px;
+      z-index: -1;
+    }
+  }
+}
+
