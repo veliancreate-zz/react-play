@@ -7,36 +7,32 @@
     background-color: transparent;
     z-index: 3; }
 
-.WorkerCard {
+.feedback {
   background-color: #fff;
   border-radius: 10px;
   text-align: center;
   position: relative;
-  height: 40rem; }
-  .WorkerCard.undercard {
-    position: absolute;
-    width: 100%;
-    z-index: 1;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    display: none;
-    transition: 0.5s; }
-    .WorkerCard.undercard.liked {
-      z-index: 3;
-      background-color: #f0a435;
-      display: block; }
-    .WorkerCard.undercard.disliked {
-      z-index: 3;
-      background-color: #6e6e6e;
-      display: block; }
-    .WorkerCard.undercard p.swiped {
-      font-size: 2rem;
-      text-transform: uppercase;
-      color: white;
-      padding-top: 50%; }
-    .WorkerCard.undercard p.swiped:last-child {
-      padding-top: 0; }
+  height: 40rem;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition: 0.5s; }
+  .feedback.liked {
+    z-index: 3;
+    background-color: #f0a435; }
+  .feedback.disliked {
+    z-index: 3;
+    background-color: #6e6e6e; }
+  .feedback p.swiped {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: white;
+    padding-top: 50%; }
+  .feedback p.swiped:last-child {
+    padding-top: 0; }
 
 @media (min-width: 800px) {
   .worker-container {

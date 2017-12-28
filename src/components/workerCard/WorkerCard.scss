@@ -15,17 +15,14 @@
 .feedback {
   @include WorkerCard;
   @include UnderCard;
-  display: none;
   transition: 0.5s;
   &.liked {
     z-index: 3;
     background-color: $rota_orange;
-    display: block;
   }
   &.disliked {
     z-index: 3;
     background-color: $font_lighter_black;
-    display: block;
   }
   p.swiped {
     font-size: 2rem;
