@@ -1,4 +1,4 @@
-import SWIPE_WORKER from './types';
+import { SWIPE_WORKER } from './types';
 import { swipeRight, swipeLeft } from './';
 
 describe('Actions', () => {
