@@ -54,7 +54,7 @@ class WorkerCard extends Component {
       swipedWorker: worker.name,
     });
     setTimeout(() => {
-      this.props.swipeLeft(worker.id);
+      this.props.swipeLeft(worker);
       this.setState({
         didSwipeLeft: false,
       });
@@ -71,7 +71,7 @@ class WorkerCard extends Component {
       swipedWorker: worker.name,
     });
     setTimeout(() => {
-      this.props.swipeRight(worker.id);
+      this.props.swipeRight(worker);
       this.setState({
         didSwipeRight: false,
       });
@@ -89,11 +89,11 @@ class WorkerCard extends Component {
         <div className="workers" ref={(elem) => { this.swipeElem = elem; }}>
           <WorkerViewer workers={this.props.workers} />
         </div>
-        <div className={`WorkerCard undercard ${this.state.didSwipeLeft ? 'disliked' : ''}`}>
+        <div className={`feedback ${this.state.didSwipeLeft ? 'disliked' : ''}`}>
           <p className="swiped">NOPE!</p>
           <p className="swiped">{this.state.swipedWorker}</p>
         </div>
-        <div className={`WorkerCard undercard ${this.state.didSwipeRight ? 'liked' : ''}`}>
+        <div className={`feedback ${this.state.didSwipeRight ? 'liked' : ''}`}>
           <p className="swiped">LIKED!</p>
           <p className="swiped">{this.state.swipedWorker}</p>
         </div>

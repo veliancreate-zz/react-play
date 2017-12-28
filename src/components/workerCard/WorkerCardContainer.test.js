@@ -39,10 +39,7 @@ describe(__filename, () => {
       expect(props.workers).toEqual([dummyWorkers[3]]);
     });
 
-    it('will pass both as undefined if all are swiped', () => {
-      propsTestInitialState.workers[0].swiped = true;
-      propsTestInitialState.workers[1].swiped = true;
-      propsTestInitialState.workers[2].swiped = true;
+    it('will pass empty array if all are swiped', () => {
       propsTestInitialState.workers[3].swiped = true;
       const store = mockStore(propsTestInitialState);
       const wrapper = shallow(<WorkerCardContainer store={store} />);

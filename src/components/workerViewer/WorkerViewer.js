@@ -13,7 +13,7 @@ function WorkerViewer(props) {
       </div>);
   }
   const card = workers.map((worker, i) => (
-    <div key={worker.id} className={`WorkerCard ${i === 1 ? 'undercard' : ''}`}>
+    <div key={worker.id} className={`WorkerCard${i === 1 ? ' undercard' : ''}`}>
       <img src={`https://robohash.org/${worker.name}?size=1000x1000`} alt={`${worker.name}`} />
       <h2>{worker.name}</h2>
       { [1, 2, 3, 4, 5].map(n => (

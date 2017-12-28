@@ -20,13 +20,16 @@
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
+    display: none;
     transition: 0.5s; }
     .WorkerCard.undercard.liked {
+      z-index: 3;
       background-color: #f0a435;
-      z-index: 3; }
+      display: block; }
     .WorkerCard.undercard.disliked {
+      z-index: 3;
       background-color: #6e6e6e;
-      z-index: 3; }
+      display: block; }
     .WorkerCard.undercard p.swiped {
       font-size: 2rem;
       text-transform: uppercase;
